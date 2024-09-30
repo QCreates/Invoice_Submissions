@@ -1,0 +1,24 @@
+{
+  "name": "invoice_submissions",
+  "version": "1.0.0",
+  "main": "invoice_submissions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QCreates/Invoice_Submissions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QCreates/Invoice_Submissions/issues"
+  },
+  "homepage": "https://github.com/QCreates/Invoice_Submissions#readme",
+  "description": "",
+  "dependencies": {
+    "jsdom": "^25.0.1",
+    "selenium-webdriver": "^4.25.0",
+    "xlsx": "^0.18.5"
+  }
+}
