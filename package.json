@@ -17,6 +17,7 @@
   "homepage": "https://github.com/QCreates/Invoice_Submissions#readme",
   "description": "",
   "dependencies": {
+    "chromedriver": "^129.0.1",
     "jsdom": "^25.0.1",
     "selenium-webdriver": "^4.25.0",
     "xlsx": "^0.18.5"
