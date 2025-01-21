@@ -8,8 +8,8 @@ const { Select } = require('selenium-webdriver');
 
 // Set Chrome options to connect to the existing Chrome session
 let chromeOptions = new chrome.Options();
-chromeOptions = chromeOptions.addArguments("--remote-debugging-port=9222");  // Use the correct port where Chrome is running
-chromeOptions = chromeOptions.debuggerAddress('localhost:9222');  // Connect to the existing Chrome session on this port
+chromeOptions = chromeOptions.addArguments("--remote-debugging-port=9225");  // Use the correct port where Chrome is running
+chromeOptions = chromeOptions.debuggerAddress('localhost:9225');  // Connect to the existing Chrome session on this port
 
 let outputData = [];
 
@@ -137,7 +137,6 @@ async function main() {
                         console.log('Checkbox is already deselected.');
                     }
 
-
                     /*
                     SELECTING THE SPECIFIC PO OF ASN
                     */
@@ -195,9 +194,9 @@ async function main() {
                             10000  // Wait up to 10 seconds
                         );
                         await driver.executeScript("arguments[0].click();", redirectButton);
-                        outputData.push([invoiceArray[i][0], invoiceArray[i][2], invoiceAmount, invoiceAmount, "Submitted"]);
+                        outputData.push([invoiceArray[i][0], invoiceArray[i][2], invoiceAmount, totalAmount, "Submitted"]);
                     } else if (totalAmount == 0){
-                        outputData.push([invoiceArray[i][0], invoiceArray[i][2], invoiceAmount, invoiceAmount, "Submitted"]);
+                        outputData.push([invoiceArray[i][0], invoiceArray[i][2], invoiceAmount, totalAmount, "Previously Submitted"]);
                         console.log("Already Submitted")
                         await driver.get('https://vendorcentral.amazon.com/hz/vendor/members/invoice-creation/search-shipments?date-range-option=DEFAULT_DATE_RANGE&payee-name-selection=allPayeeCodes&poSearchTable-JSON=%7B%22sortColumnId%22:%22shipped_date%22%7D');
                         let dropdown = await driver.wait(until.elementLocated(By.id('shipment-search-key')), 10000);
@@ -228,7 +227,7 @@ async function main() {
         const newWorkbook = XLSX.utils.book_new();
         const newWorksheet = XLSX.utils.aoa_to_sheet(outputData);
         XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Sheet1');
-        XLSX.writeFile(newWorkbook, 'invoices_status.xlsx');
+        XLSX.writeFile(newWorkbook, 'invoices_new.xlsx');
 
         console.log('Invoice statuses have been written to invoices_status.xlsx');
         // Optionally, you can leave the Chrome session open
