@@ -1,3 +1,5 @@
+This is a project which submits the invoices automatically for an Amazon Vendor Central account. The code is very messy but it works.
+
 # Double Check:<br />
 Make sure the file containing the invoices is called invoices.xlsx and the first row must be the headers, not the second, with the below containing the information.<br />
 <br />
